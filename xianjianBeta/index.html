@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>而今，十年了</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <!-- <img src="images/pic4.jpg" alt=""> -->
+                </div>
+                <div class="des">
+                    <img src="images/text1.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.4s" swiper-animate-delay="1s">
+                    <img src="images/text2.png" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="1.6s">
+                    <img src="images/text3.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.6s" swiper-animate-delay="2.2s">
+                    <img src="images/text4.png" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="2.8s">
+                    <img src="images/text5.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.6s" swiper-animate-delay="3.6s">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img class="linger ani" src="images/pic2.png" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img class="love1 ani" src="images/text6.png" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+                <img class="love2 ani" src="images/text7.png" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.2s">
+                <img class="year ani" src="images/text8.png" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+                <img class="xiaoyao ani" src="images/pic23.jpg" swiper-animate-effect="rollIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/pic11.jpg" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/pic12.jpg" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text9.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+                <img src="images/text10.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.2s">
+                <img src="images/text11.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/pic19.jpg" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/pic10.jpg" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text13.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text14.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text15.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text12.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+            </div>
+            <div class="swiper-slide">
+                <div class="img ani" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                    <img src="images/pic18.jpg">
+                </div>
+                <img src="images/text16.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text17.png" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
+                <img src="images/text18.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="images/text19.png" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
+                <img src="images/text20.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+    </div>
+    <div class="music" id="music">
+        <img src="images/music_off.png">
+        <img src="images/music.gif">
+        <audio src="images/main.mp3" autoplay="autoplay" preload="auto" loop="loop"></audio>
+    </div>
+    <span class="arrow"></span>
+    <script src="js/swiper-3.2.7.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical',
+        onInit: function(swiper){
+            swiperAnimateCache(swiper); //隐藏动画元素 
+            swiperAnimate(swiper); //初始化完成开始动画
+        }, 
+        onSlideChangeEnd: function(swiper){ 
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        } 
+    });
+    var oMusic = document.getElementById('music');
+    var offon = true;
+    oMusic.onclick = function() {
+        var oAudio = oMusic.getElementsByTagName('audio')[0];
+        var aImg = oMusic.getElementsByTagName('img');
+        if (offon) {
+            aImg[0].style.animation = 'none';
+            aImg[1].style.display = 'none';
+            oAudio.pause();
+        }else{
+            aImg[0].style.animation = 'musicRun 1s linear infinite';
+            aImg[1].style.display = 'block';
+            oAudio.play();
+        }
+        offon = !offon;
+    };
+    </script>
+</body>
+</html>
