@@ -1,0 +1,67 @@
+body { font-family: 'Microsoft YaHei', sans-serif;overflow-x: hidden; }
+/*头部导航折叠后存在上面边距,审查源码找到.navbar-nav*/
+.navbar-default .navbar-brand { font-weight: bold; }
+.nav>li>a { font-weight: bold; }
+#firstNav .navbar-nav { margin-top: 0; }
+/*home*/
+#home { width: 100%;margin-top: 50px;text-align: center;color: #fff;background: #fff url(../images/home-bg.jpg) no-repeat center center;background-size: cover; }
+.filterBox { width: 100%;height: 100%;background-color: rgba(8,8,8,0.7);padding: 90px 0; }
+#home h2 { font-size: 36px;margin-bottom: 20px; }
+#home p { font-size: 14px;padding: 20px 0;font-weight: 600;line-height: 35px; }
+/*end home*/
+/*bbs*/
+#bbs { text-align: center;padding: 80px 0; }
+#bbs .col-md-4 a { padding: 15px;color: #666;text-decoration: none;display: inline-block; }
+#bbs .col-md-4:hover { background: #f1f1f1;box-shadow: 2px 2px 5px #eee;border-radius: 6px; }
+#bbs .col-md-4 h3 { font-weight: bold; }
+#bbs .col-md-4 img { margin: 0 auto; }
+/*end bbs*/
+/*html5+bootstrap*/
+#html5 { background: #f8f8f8; }
+#html5,#bootstrap { padding: 80px 0; }
+#html5 h3,#bootstrap h3 { font-size: 30px;font-weight: bold; }
+#html5 .my-icon,#bootstrap .my-icon {
+	background: #A3A3A3;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	font-size: 20px;
+	margin-right: 20px;
+}
+#html5 p { line-height: 40px; }
+/*end html5+bootstrap*/
+/*course*/
+#course { background: #f8f8f8;padding: 100px 0;text-align: center; }
+#course .col-md-3 { margin-bottom: 26px; }
+#course h3 { padding-bottom: 60px;font-size: 28px;font-weight: bold; }
+#course .course { background: #ffffff; }
+#course .course a { margin: 20px 0;padding: 6px 30px;color: #ccc;transition: all 0.5s; }
+#course .course a:hover { background: #ccc;color: #fff; }
+#course img { margin: 0 auto; }
+/*end course*/
+/*app*/
+#app { padding: 80px 0; }
+#app h3 { font-weight: bold;padding-bottom: 20px; }
+#app p { margin-bottom: 10px; }
+#app a { margin: 10px 0;padding: 5px 20px;transition: all 0.5s; }
+#app a:hover { background: #ccc;color: #fff; }
+#app a span { margin-right: 10px; }
+/*end app*/
+/*contact*/
+#contact {
+	color: #fff;
+	background: #000 url(../images/contact-bg.png) no-repeat center center;
+}
+#contact h3 { font-weight: bold;margin-top: 0;margin-bottom: 20px;font-size: 26px; }
+#contact p { line-height: 26px;margin-bottom: 20px; }
+#contact input { height: 50px;margin-bottom: 20px;border: none;border-radius: 0; }
+#contact textarea { margin-bottom: 20px;height: auto; }
+#contact input[type="submit"] { background: #aaa;color: #fff;transition: all 0.3s; }
+#contact input[type="submit"]:hover { background: #fff;background: #888; }
+/*end contact*/
+/*footer*/
+footer { text-align: center;font-weight: 400;padding: 20px; }
+/*end footer*/
