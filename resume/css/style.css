@@ -17,7 +17,7 @@ body {
    font-weight: normal;
    font-style: normal;
 }
-#wrapper {max-width: 700px; margin: 0 auto; padding:60px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); position: relative;}
+#wrapper {max-width: 700px; margin: 0 auto; padding:60px;  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); position: relative;}
 ul {margin: 0 0 0 15px; position: relative;}
 li {margin: 0 0 5px 0; font-size: 13px;}
 p {text-align: justify; font-size: 13px;}
@@ -195,5 +195,3 @@ li.s30 {width: 30%;}
 .respond ul#project li .details {float: none; width: 100%}
 .respond ul#schools li > p,
 .respond ul#project li > p {float: none; width: 100%; margin-bottom: 50px; margin-top: 10px;}
-
-
