@@ -4,7 +4,7 @@ li {list-style: none;}
 a {text-decoration: none;}
 img {border: none;vertical-align: top;}
 /*public css*/
-.clear:after {content: "";display: block;clear: both;}
+.clear::after {content: "";display: block;clear: both;}
 .clear {zoom: 1;}
 .fl {float: left;}
 .fr {float: right;}

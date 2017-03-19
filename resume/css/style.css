@@ -17,21 +17,18 @@ body {
    font-weight: normal;
    font-style: normal;
 }
-#wrapper {max-width: 700px; margin: 0 auto; padding:60px;  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); position: relative;}
+#wrapper {max-width: 700px; margin: 0 auto; padding:60px;  background: #fff; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1); box-shadow: 0 1px 3px rgba(0,0,0,.1); position: relative;}
 ul {margin: 0 0 0 15px; position: relative;}
 li {margin: 0 0 5px 0; font-size: 13px;}
 p {text-align: justify; font-size: 13px;}
 .clear {clear: both;}
 a {color: #444; text-decoration: none;}
 a:hover {text-decoration:underline;}
-
-#sticker {position: fixed; top: -60px; left: 0; right: 0; background: #fff; background: rgba(255,255,255,.98); height: 55px; box-shadow: 0 0 3px rgba(0,0,0,.3); z-index: 1000;}
+#sticker {position: fixed; top: -60px; left: 0; right: 0; background: #fff; background: rgba(255,255,255,.98); height: 55px; -webkit-box-shadow: 0 0 3px rgba(0,0,0,.3); box-shadow: 0 0 3px rgba(0,0,0,.3); z-index: 1000;}
 #sticker h2.sectionHead {border: none; margin: 0 0 0 50px; line-height: 55px; padding: 0 0 0 8px;}
 #sticker h2.sectionHead::before {left: -40px; top:5px;}
 #sticker #socialIcons {top:10px; right: 15px;}
-
 h3 {font-weight: bold; font-size: 14px}
-
 h2.sectionHead {
 	clear: both; 
 	font:bold 20px/12px 'verdana',sans-serif;
@@ -51,16 +48,13 @@ h2.sectionHead {
 	top: -15px;
 	background-image: url(../images/icons.png);
 } 
-
 #titleName {margin: 20px -60px 10px;}
-
 #titleName::before {background-position: -90px bottom;}
 #tools::before {background-position: left top;}
 #learn::before {background-position: right top;}
 #ribbon::before {background-position: -90px top;}
 #chat::before {background-position: -45px top;}
 #contact::before {background-position: right bottom;}
-
 #bio {position: relative;}
 #bio h2 {font-size: 15px;}
 #bio p {
@@ -76,7 +70,6 @@ h2.sectionHead {
 	border-color: #fff #f3f3f3 #e8e8e8;
 	line-height: 1.6em;
 }
-
 #socialIcons {width: 50%; height: 30px; position: absolute; top: -35px; right: 0; text-align: right;}
 .socialIcon {
 	width: 30px; 
@@ -85,24 +78,25 @@ h2.sectionHead {
 	display: inline-block; 
 	border: 2px solid #2e2e2e;
 	border-radius: 50%;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 	background-size: cover;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-color: #fff;
+	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 }
-.socialIcon:hover {border-color: #aaa;transform:scale(1.2) rotate(360deg); }
+.socialIcon:hover {border-color: #aaa;-webkit-transform:scale(1.2) rotate(360deg);-ms-transform:scale(1.2) rotate(360deg);transform:scale(1.2) rotate(360deg); }
 #githubIcon {background-image: url(../images/github.png);}
 #QQIcon {background-image: url(../images/qq.png);}
 #taoBaoIcon {background-image: url(../images/tb.png);}
 #jdIcon {background-image: url(../images/jd.png);}
 #zhiHuIcon {background-image: url(../images/zh.png);}
-
 #project li {margin: 0 0 30px 0; clear: both;}
 #project li > h3 {font-family: 'FontAwesome';background: #f4f4f4; color: #aaa; padding-left: 5px; line-height: 25px; margin:0 0 30px -5px;}
 #project li > h3::before {content: "\f08d";padding-right: 15px;}
-
 #skills {margin: 0; width: 100%; overflow: hidden; background:url(../images/loading.gif) no-repeat center 30%;}
 #skills.ready {background: none;}
 #skills li {
@@ -113,7 +107,9 @@ h2.sectionHead {
     font:bold 9px/20px sans-serif;
     letter-spacing: 2px;
     margin-bottom: 8px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
     padding:3px 6px 0;
     z-index: 1;
 }
@@ -132,52 +128,38 @@ h2.sectionHead {
 #skills li.s70:after {content: "70%";}
 #skills li.s50:after {content: "50%";}
 #skills li.s30:after {content: "30%";}
-
 #skills li span {display: none;}
-
 #skills li:hover {background: #222;}
-
 li.s90 {width: 90%;}
 li.s60 {width: 60%;}
 li.s70 {width: 70%;}
 li.s50 {width: 50%;}
 li.s30 {width: 30%;}
-
 #honorsAwards li {padding-left: 5px; margin-bottom: 8px;list-style: none;font-family: "FontAwesome";position: relative;padding-left: 20px;}
 #honorsAwards li::before { content: "\f0ad";position: absolute;left: 0;top: 0; }
 #contactInfo {width: 100%;}
-
 #schools,
 #project {margin: 0; list-style: none;}
-
 #schools li,
 #project li {margin: 0 0 20px 0; clear: both;}
-
 #schools li .details,
 #project li .details {float: left; width: 30%; margin-bottom: 25px;}
 #schools li > p,
 #project li > p {float: right; width: 67%;}
-
 .details h5 {font-style: italic;}
-
 #contactInfo li { font-family: 'FontAwesome';color: #666;list-style: none; }
 .phone::before,.email::before,.page::before,.download::before { padding-right: 20px; }
 .phone::before { content: "\f095"; }
 .email::before { content: "\f003"; }
 .page::before { content: "\f09b"; }
 .download::before { content: "\f019"; }
-
-
 /*responsive*/
 .respond {background: #fff;}
 .respond #sticker {display: none;}
-.respond #wrapper {margin: 0 auto; padding:30px; background: #fff; box-shadow: none;}
-
+.respond #wrapper {margin: 0 auto; padding:30px; background: #fff; -webkit-box-shadow: none; box-shadow: none;}
 .respond h2.sectionHead {font-size: 15px; letter-spacing: -1px; margin: 40px 0 50px -60px; padding-left: 8px; }
 .respond h2#titleName {margin: 20px 0 10px -60px;}
-
 .respond p {text-align: left;}
-
 .respond #socialIcons {
     height: 30px;
     margin-top: 20px;
@@ -187,10 +169,8 @@ li.s30 {width: 30%;}
     top: auto;
     width: 100%;
 }
-
 .respond #bio h2 {font-size: 12px;}
 .respond #bio p {padding:0; background: #fff; max-width: 100%; border: none;}
-
 .respond ul#schools li .details,
 .respond ul#project li .details {float: none; width: 100%}
 .respond ul#schools li > p,

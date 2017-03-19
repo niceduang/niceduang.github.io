@@ -18,7 +18,7 @@ body {
 .header {
 	width: 60%;height: 100%;
 	margin: 0 auto;
-	padding: 20px 0;box-sizing: border-box;
+	padding: 20px 0;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;
 }
 .header img { width: 100%;height: 100%; }
 .menu { padding: 20px 0; }
@@ -56,7 +56,7 @@ body {
 .n-s-footer { color: #fff;font-size: 14px;text-align: center; }
 .n-s-footer p { height: 28px;line-height: 28px;letter-spacing: 1px;padding: 20px 0; }
 /*main rigth*/
-.content-section { width: calc(100% - 240px);float: left; }
+.content-section { width: -webkit-calc(100% - 240px); width: calc(100% - 240px);float: left; }
 .c-s-main { width: 100%;margin: 100px 0;float: left;position: relative;left: 50%; }
 .c-s-main .link {
 	width: 30%;max-width: 180px;margin: 0 60px;
@@ -66,10 +66,13 @@ body {
 	display: inline-block;width: 100%;position: relative;
 	height: 50px;line-height: 50px;padding-left: 20px;
 	color: #2ecc71;border: 2px solid rgba(255,255,255,0.8);
-	box-sizing: border-box;background: transparent url(../images/allow.png) 130px center no-repeat;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;background: transparent url(../images/allow.png) 130px center no-repeat;
+	-webkit-transition: all 0.4s ease;
 	transition: all 0.4s ease;
 }
-.c-s-main a span { position: absolute;background: rgba(255,255,255,0);transition: all 0.4s ease; }
+.c-s-main a span { position: absolute;background: rgba(255,255,255,0);-webkit-transition: all 0.4s ease;transition: all 0.4s ease; }
 .line-top { width: 0px;height: 2px;left: -100%;top: -2px; }
 .line-bottom { width: 0px;height: 2px;right: -100%;bottom: -2px; }
 .line-left { width: 2px;height: 0;left: -2px;bottom: -100%; }
@@ -83,9 +86,10 @@ body {
 .icon {
 	width: 100%;height: 170px;background-color: transparent;background-position: 0 0;
 	background-repeat: no-repeat;
+	-webkit-transition: all 0.2s linear;
 	transition: all 0.2s linear;
 }
-.icon:hover { transform: rotate(360deg) scale(1.2); }
+.icon:hover { -webkit-transform: rotate(360deg) scale(1.2); -ms-transform: rotate(360deg) scale(1.2); transform: rotate(360deg) scale(1.2); }
 .link:nth-of-type(1) p { background-image: url(../images/mission.png); }
 .link:nth-of-type(2) p { background-image: url(../images/play.png); }
 .link:nth-of-type(3) p { background-image: url(../images/touch.png); }
