@@ -1,5 +1,6 @@
-##### niceduang.github.io
+###### niceduang.github.io
 
-- 关于我
-> 图个方便
-> 厚颜无耻的当作线上简历
+- src目录
+    - word版+pdf版简历
+- resume目录
+    - 网页版简历
