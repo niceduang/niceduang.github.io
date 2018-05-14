@@ -1,0 +1,292 @@
+@charset "utf-8";
+@import "./public";
+
+/* font */
+@font-face {
+    font-family: 'iconfont';  /* project id 663454 */
+    src: url('//at.alicdn.com/t/font_663454_6009bl9xy00ms4i.eot');
+    src: url('//at.alicdn.com/t/font_663454_6009bl9xy00ms4i.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_663454_6009bl9xy00ms4i.woff') format('woff'),
+    url('//at.alicdn.com/t/font_663454_6009bl9xy00ms4i.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_663454_6009bl9xy00ms4i.svg#iconfont') format('svg');
+}
+%font{
+	font-family: 'iconfont';
+	font-weight: normal;
+	font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+$bgc: #444444;
+$c: #777777;
+$padding: 60px;
+$tagHeight: 45px;
+// css-reset
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+}
+a{
+    color: $c;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+/* layout */
+body {
+    font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+    line-height: 1.4em;
+    background-color: #f3f3f3;
+    color: $c;
+    font-size: 12px;
+}
+
+.wrapper{
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px $padding;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+// 主标题Tag
+.tit{
+    position: relative;
+    clear: both;
+    margin: 2% auto;
+    &-tag{
+        position: relative;
+        height: $tagHeight;
+        line-height: $tagHeight;
+        letter-spacing: 2px;
+        font-weight: bold;
+        font-size: 20px;
+        &::before{
+            $h: 12px;
+            content: "";
+            position: absolute;
+            z-index: 0;
+            left: (-$padding);
+            top: 50%;
+            margin-top: (-$h/2);
+            width: 52px;
+            height: $h;
+            background-color: $bgc;
+        }
+    }
+    &-tips{
+        margin-top: -10px;
+        font-size: 14px;
+    }
+    .icon{
+        position: absolute;
+        width: $tagHeight;
+        height: $tagHeight;
+        left: -105px;
+        top: 50%;
+        margin-top: (-$tagHeight/2);
+        @extend %font;
+        font-size: 22px;
+        color: $bgc;
+    }
+}
+// 社交网络
+.social-networks{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $tagHeight;
+    a{
+        float: right;
+        width: $tagHeight;
+        height: $tagHeight;
+        text-align: center;
+        line-height: $tagHeight;
+        transition: all 0.4s;
+        i{
+            @extend %font;
+            font-size: 22px;
+        }
+        &:hover{
+            color: #1596f5;
+        }
+    }
+}
+// 简介
+.simple-des{
+    position: relative;
+    margin: 20px auto;
+    padding: 3% 6%;
+    line-height: 1.6em;
+    border: 1px solid #f3f3f3;
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
+    transition: transform .4s;
+    &:hover{
+        transform: translate3d(0, -5px, 0);
+    }
+}
+// 技能
+.skills{
+    li{
+        position: relative;
+        background-color: $bgc;
+        color: #fff;
+        font: bold 10px/20px sans-serif;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        box-sizing: border-box;
+        line-height: 1em;
+        padding: 6px;
+        transition: width 0.6s;
+    }
+    .num{
+        float: right;
+        display: none;
+    }
+}
+/* // 栏*/ 
+.rows{
+    margin: 0 0 20px 0;
+    clear: both;
+    font-size: 13px;
+    line-height: 1.4em;
+    &-det{
+        float: left;
+        width: 30%;
+        .name{
+            font-weight: bold;
+            font-size: 14px;
+            a,span{
+                display: block;
+                opacity: 0.6;
+            }
+            i{
+                font-size: 10px;
+                padding-left: 10px;
+                opacity: 0.9;
+                font-weight: normal;
+                font-style: normal;
+            }
+        }
+        .duration{
+            font-style: italic;
+        }
+    }
+    &-des{
+        float: right;
+        width: 65%;
+    }
+}
+// 教育经历
+.education{
+    li{
+        overflow: hidden;
+        clear: both;
+    }
+}
+// 项目经历
+.projects{
+    dt{
+        background: #f4f4f4;
+        color: #aaa;
+        padding-left: 5px;
+        line-height: 25px;
+        margin: 3% auto;
+        &::before{
+            @extend %font;
+            content: "\e66a";
+            font-size: 12px;
+            padding-right: 5px;
+        }
+    }
+    dd{
+        overflow: hidden;
+        clear: both;
+        margin-bottom: 10px;
+    }
+}
+.company{
+    float: right;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: normal;
+    em{
+        padding-left: 10px;
+        font-weight: bold;
+    }
+}
+// 技能描述
+.skill-des{
+    li{
+        position: relative;
+        padding-left: 25px;
+        margin: 0 0 8px 0;
+        font-size: 13px;
+        &::before{
+            content: "\e625";
+            @extend %font;
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+// 联系我
+.contact{
+    li{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .icon{
+        @extend %font;
+        padding-right: 15px;
+    }
+}
+/* media */
+@media screen and (max-width:768px) {
+    .wrapper{
+        overflow: hidden;
+    }
+    .rows-det,
+    .rows-des{
+        float: none;
+        width: 100%;
+    }
+    .rows-det{
+        margin-bottom: 3%;
+        .name{
+            background-color: #f90;
+            a,span{
+               display: inline;
+               padding-left: 10px;
+           }
+        }
+    }
+}
+@media screen and (max-width:400px){
+    .social-networks{
+        display: none;
+    }
+}
+/* 打印 */
+@media print only {
+    .tit .icon{
+        display: none;
+    }
+    .simple-des{
+        background: none;
+        box-shadow: none;
+    }
+    .skills li{
+        background: #f4f4f4;
+        color: #aaa;
+    }
+}
