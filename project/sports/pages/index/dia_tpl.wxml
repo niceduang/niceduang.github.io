@@ -1,0 +1,71 @@
+<template name="dia">
+  <!-- 弹窗-S -->
+  <view id="dialog-rule" class="mask" hidden="{{diaData.modalHidden}}">
+    <!-- 活动规则弹窗-S -->
+    <view class="dia-inner dia-rule" wx:if="{{diaData.targetModal=='rule'}}">
+      <view class="close" bindtap="closeDialog">关闭</view>
+      <view class="dia-rule-tit">活动规则</view>
+      <view class="dia-rule-des">
+        <text wx:for="{{diaData.ruleItems}}" wx:key="key">{{item}}</text>
+      </view>
+    </view>
+    <!-- 活动规则弹窗-E -->
+    <!-- 支付弹窗-S -->
+    <view class="dia-inner dia-label" wx:if="{{diaData.targetModal=='label'}}">
+      <view class="close" bindtap="closeDialog">关闭</view>
+      <view class="dia-label-tit">请选择目标</view>
+      <view class="dia-lable-radio">
+        <radio-group class="dia-radio-group" bindchange="radioChange">
+          <label wx:for="{{diaData.labelStepsItems}}" wx:key="key">
+            <radio value="{{item.id}}" checked="{{item.checked}}" />
+            <text>{{item.value}}</text>
+          </label>
+        </radio-group>
+      </view>
+      <view class="dia-label-tit">请选择天数</view>
+      <view class="dia-lable-radio">
+        <radio-group class="dia-radio-group" bindchange="radioChange">
+          <label wx:for="{{diaData.labelDateItems}}" wx:key="key">
+            <radio value="{{item.id}}" checked="{{item.checked}}" />
+            <text>{{item.value}}</text>
+          </label>
+        </radio-group>
+      </view>
+      <view class="btn-pay" bindtap="pay">支付6元</view>
+    </view>
+    <!-- 支付弹窗-E -->
+    <!-- 恭喜提示弹窗-S -->
+    <view class="dia-inner dia-tips" wx:if="{{diaData.targetModal=='tips'}}">
+      <view class="close" bindtap="closeDialog">关闭</view>
+      <view class="dia-tips-des">
+        <view>恭喜您，已成功报名<text>06.25</text>期奖励激励赛</view>
+        <view>明日完成目标后，请务必在凌晨12点前来小程序打卡签到完成哦</view>
+        <view>完成目标后的奖金，将发放至您的个人账户，可提现</view>
+      </view>
+      <view class="btn btn-know">知道了</view>
+    </view>
+    <!-- 恭喜提示弹窗-E -->
+    <!-- 输入支付宝号弹窗-S -->
+    <view class="dia-inner dia-form" wx:if="{{diaData.targetModal=='alipay'}}">
+      <view class="close" bindtap="closeDialog">关闭</view>
+      <view class="dia-form-tit">请输入支付宝帐号</view>
+      <view class="dia-input-box">
+        <input type='text' placeholder="支付宝帐号" />
+      </view>
+      <view class="btn btn-sure">确定</view>
+      <view class="alipay-tips">体现金额将在48小时内到支付宝，敬请留意</view>
+    </view>
+    <!-- 输入支付宝号弹窗-E -->
+    <!-- 输入充值金额弹窗-S -->
+    <view class="dia-inner dia-form" wx:if="{{diaData.targetModal=='payNum'}}">
+      <view class="close" bindtap="closeDialog">关闭</view>
+      <view class="dia-form-tit">请输入充值金额(元)</view>
+      <view class="dia-input-box">
+        <input type="digit" />
+      </view>
+      <view class="btn btn-sure">确定</view>
+    </view>
+    <!-- 输入充值金额弹窗-E -->
+  </view>
+  <!-- 弹窗-E -->
+</template>

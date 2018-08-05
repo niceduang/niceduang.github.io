@@ -1,0 +1,50 @@
+@import "public.wxss";
+.table-group{
+	flex: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	padding: 0 35rpx;
+	text-align: center;
+	color: #353535;
+}
+.scroll-tit,
+.scroll-item{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+.scroll-tit{
+	height: 96rpx;
+	line-height: 96rpx;
+	border-bottom: 1px solid #ffd1b0;
+	font-size: 32rpx;
+	color: #ff6c00;
+}
+.scroll-item{
+	height: 106rpx;
+	line-height: 106rpx;
+	border-bottom: 1px solid #efefef;
+}
+.scroll-items{
+	flex: 1;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling:touch;
+}
+.scroll-tit view,
+.scroll-item view{
+	text-align: center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 28rpx;
+}
+.scroll-tit view:nth-of-type(1),
+.scroll-item view:nth-of-type(1){width: 140rpx;}
+.scroll-item view:nth-of-type(1){font-size: 24rpx;}
+.scroll-tit view:nth-of-type(2),
+.scroll-item view:nth-of-type(2){width: 395rpx;}
+.scroll-tit view:nth-of-type(3),
+.scroll-item view:nth-of-type(3){flex: 1;}

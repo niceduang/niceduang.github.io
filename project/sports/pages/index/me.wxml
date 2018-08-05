@@ -1,0 +1,46 @@
+<!--pages/index/me.wxml-->
+<view class="wrap">
+  <view class="slogan">
+    <image src="../../assets/bg3.jpg" mode="widthFix"></image>
+    <view class="user-group">
+      <view class="user-photo">
+        <view class="photo">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="name">
+          <open-data type="userNickName"></open-data>
+        </view>
+      </view>
+      <!-- <view class="user-info">
+        <view class="user-item">
+          <text>参与基金</text>
+          <text>{{userInfo.total}}</text>
+        </view>
+        <view class="user-item">
+          <text>获得奖金</text>
+          <text>{{userInfo.hasGet}}</text>
+        </view>
+      </view> -->
+      <view class="user-details">
+        <view class="user-count">
+          <text>账户余额：￥178.00</text>
+        </view>
+        <view class="user-ctrls">
+          <text data-dia='payNum' bindtap="showDialog">充值</text>
+          <text data-dia='alipay' bindtap="showDialog">提现</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tab-bars">
+    <view class="tab-bar {{curIndex==1?'cur':''}}" data-cur="1" bindtap="changeTabbar"><text>我的奖励</text></view>
+    <view class="tab-bar {{curIndex==2?'cur':''}}" data-cur="2" bindtap="changeTabbar"><text>每日奖金</text></view>
+  </view>
+  <!-- 引入table_tpl模板 -->
+  <import src="table_tpl.wxml" />
+  <template is="table" data="{{tableData}}" />  
+</view>
+
+<!-- 引入dia_tpl模板 -->
+<import src="dia_tpl.wxml" />
+<template is="dia" data="{{diaData}}" />

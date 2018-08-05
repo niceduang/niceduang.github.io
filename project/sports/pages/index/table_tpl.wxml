@@ -1,0 +1,14 @@
+<template name="table">
+	<view class="table-group">
+		<view class="scroll-tit">
+			<view wx:for="{{tableData.title}}" wx:key="key">{{item}}</view>
+		</view>
+		<scroll-view class="scroll-items" scroll-y="true" bindscrolltolower="loadData">
+			<view class="scroll-item" wx:for="{{tableData.todayData}}" wx:key="key">
+				<view>{{item.date}}</view>
+				<view>{{item.total}}</view>
+				<view>{{item.average}}</view>
+			</view>
+		</scroll-view>
+	</view>
+</template>

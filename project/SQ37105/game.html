@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <meta name="format-detection" content="telephone=no" >
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    <link rel="dns-prefetch" href="//wq.360buyimg.com">
+    <title>SQ37105</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- 动态兼容多设备显示脚本 -->
+    <script>function __uri(url){return url;}</script>
+</head>
+<body>
+    <!-- S 游戏页面 -->
+    <div class="wrapper">
+        <!-- 初次进入页面为game增加 ani 代表动画展示弹层 -->
+        <div class="game">
+            <!-- 开发注意：增加pause代表暂停状态 -->
+            <a href="javascript:;" class="btn_play">音乐</a>
+            <audio src="images/sound/music.mp3" id="audio" loop preload autoplay></audio>
+            <audio src="images/sound/clicked.mp3" id="clicked_audio" preload></audio>
+            <!-- 游戏提示蒙层-S -->
+            <div class="game_mask">
+                <div class="game_time"><p>倒计时</p><span>30s</span></div>
+                <p class="game_mask_level">第2关</p>
+                <div class="game_mask_icon">
+                    <div class="wz"><i class="icon_wz"></i><span>x5</span></div>
+                    <div class="joy"><i class="icon_joy"></i><span>x5</span></div>
+                </div>
+            </div>
+            <!-- 游戏提示蒙层-E -->
+            <!-- 当前关卡游戏信息-S -->
+            <div class="game_info">
+                <div class="game_time"><p>倒计时</p><span>30s</span></div>
+                <div class="game_info_icon">
+                    <div class="game_mask_icon">
+                        <div class="wz"><i class="icon_wz"></i><span>0<em>/5</em></span></div>
+                        <div class="joy"><i class="icon_joy"></i><span>0<em>/5</em></span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 当前关卡游戏信息-E -->
+            <div class="game_page game_page_1">
+                <a href="javascript:;" class="icon_touch icon_touch_wz p1_wz_01">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p1_wz_02">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p1_wz_03">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p1_joy_01">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p1_joy_02">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p1_joy_03">JOY</a>
+            </div>
+            <div class="game_page game_page_2">
+                <a href="javascript:;" class="icon_touch icon_touch_wz p2_wz_01">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p2_wz_02">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p2_wz_03">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p2_wz_04">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p2_wz_05">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p2_wz_06">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p2_joy_01">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p2_joy_02">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p2_joy_03">JOY</a>
+            </div>
+            <div class="game_page game_page_3">
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_01">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_02">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_03">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_04">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_05">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_06">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_07">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_wz p3_wz_08">旺仔</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p3_joy_01">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p3_joy_02">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p3_joy_03">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p3_joy_04">JOY</a>
+                <a href="javascript:;" class="icon_touch icon_touch_joy p3_joy_05">JOY</a>
+            </div>
+        </div>
+    </div>
+    <!-- E 游戏页面 -->
+    <script type="text/javascript">
+        // 游戏dom元素获取
+        var oGame = document.querySelector('.game');
+        /**
+         * 判断用户是否是首次进入页面
+         * 1 首次进入
+         * 0 非首次进入
+         */
+        // isFirstIn(1);
+        function isFirstIn(n){
+            if (n===1) {
+                oGame.classList.add('first_in');
+            }else {
+                oGame.classList.remove('first_in');
+            }
+        }
+        // 游戏主功能
+        ;(function(w){
+            function Game(){
+                // 是否自动进入下一关
+                this.isAutoNext = true;
+                this.domGame = document.querySelector('.game');
+                this.domGamePlayer = document.querySelector('#clicked_audio');
+                this.domGamePage = document.querySelectorAll('.game_page');
+                this.domTime = document.querySelectorAll('.game_time span');
+                this.domIconTouch = document.querySelectorAll('.icon_touch');
+                this.domLevel = document.querySelector('.game_mask_level');
+                this.domGameMask = document.querySelector('.game_mask');
+                this.domGameMaskInfoIcon = document.querySelector('.game_mask .game_mask_icon');
+                this.domGameInfo = document.querySelector('.game_info');
+                this.domGameInfoIcon = document.querySelector('.game_info .game_mask_icon');
+                this.domTips = document.createElement('p');
+                this.domTips.innerHTML = '限时内集齐通关';
+                this.domTips.className = 'game_mask_tips';
+                // 记录当前关卡
+                this.level = 1;
+                // 设置一共多少关，每一关可点击旺仔彩蛋个数、JOY个数、以及时间限制
+                this.levelData = [
+                                    {"totalWZLinks":1,"totalJOYLinks":0,"totalTime":20},
+                                    {"totalWZLinks":0,"totalJOYLinks":1,"totalTime":20},
+                                    {"totalWZLinks":2,"totalJOYLinks":0,"totalTime":20},
+                                    {"totalWZLinks":2,"totalJOYLinks":1,"totalTime":20},
+                                    {"totalWZLinks":2,"totalJOYLinks":2,"totalTime":20},
+                                    {"totalWZLinks":3,"totalJOYLinks":2,"totalTime":20},
+                                    {"totalWZLinks":3,"totalJOYLinks":0,"totalTime":15},
+                                    {"totalWZLinks":0,"totalJOYLinks":3,"totalTime":15},
+                                    {"totalWZLinks":2,"totalJOYLinks":2,"totalTime":15},
+                                    {"totalWZLinks":2,"totalJOYLinks":2,"totalTime":10}
+                                ];
+                this.totalLevel = this.levelData.length;
+                // 前3关======>只能在头2屏里面找
+                this.limitLevel = 3;
+                // 记录玩家每玩一把的数据，包含过关和没过关的
+                this.userData = [];
+                // 初始化游戏相关配置
+                this.init();
+            }
+            Game.prototype = {
+                init: function(){
+                    // 记录用时
+                    this.useTime = 0;
+                    // 记录点击到的旺仔
+                    this.clickedWZ = 0;
+                    // 记录点击到的JOY
+                    this.clickedJOY = 0;
+                    // 定时器
+                    this.timer = null;
+                    // 防止再次点击
+                    this.flag = true;
+                    // 初始化页面数据显示
+                    this.updateInfo();
+                    // 初始化页面可点击点
+                    this.removeIconTouchAni();
+                },
+                // 游戏开始
+                start: function(){
+                    var _this = this;
+                    _this.setAni(function(){
+                        if (_this.flag&&!_this.timer) {
+                            _this.init(_this.level);
+                            _this.showRandomLinks();
+                            _this.setTimer();
+                            _this.flag = false;
+                        }
+                    });
+                },
+                getIconWz: function(str){
+                    var _str = '';
+                    if (this.levelData[this.level-1]["totalWZLinks"]>0) {
+                        _str += '<div class="wz">';
+                        switch (str) {
+                            case "domGameMaskInfoIcon":
+                                _str += '<i class="icon_wz"></i><span>x'+this.levelData[this.level-1]["totalWZLinks"]+'</span>';
+                                break;
+                            case "domGameInfoIcon":
+                                _str += '<i class="icon_wz"></i><span>'+this.clickedWZ+'<em>/'+this.levelData[this.level-1]["totalWZLinks"]+'</em></span>';
+                                break;
+                        }
+                        return _str+='</div>';
+                    }
+                    return _str;
+                },
+                getIconJoy: function(str){
+                    var _str = '';
+                    if (this.levelData[this.level-1]["totalJOYLinks"]>0) {
+                        _str += '<div class="joy">';
+                        switch (str) {
+                            case "domGameMaskInfoIcon":
+                                _str += '<i class="icon_joy"></i><span>x'+this.levelData[this.level-1]["totalJOYLinks"]+'</span>';
+                                break;
+                            case "domGameInfoIcon":
+                                _str += '<i class="icon_joy"></i><span>'+this.clickedJOY+'<em>/'+this.levelData[this.level-1]["totalJOYLinks"]+'</em></span>';
+                                break;
+                        }
+                        return _str+='</div>';
+                    }
+                    return _str;
+                },
+                updateDomGameMaskInfoIcon: function(){
+                    this.init();
+                    this.domLevel.innerHTML = "第"+this.level+"关";
+                    this.domGameMaskInfoIcon.innerHTML = '';
+                    this.domGameMaskInfoIcon.innerHTML += this.getIconWz("domGameMaskInfoIcon");
+                    this.domGameMaskInfoIcon.innerHTML += this.getIconJoy("domGameMaskInfoIcon");
+                    if (this.level==1) {
+                        this.domGameMask.appendChild(this.domTips);
+                        this.domTips.style.display = 'block';
+                    }else {
+                        this.domTips.style.display = 'none';
+                    }
+                },
+                updateDomGameInfoIcon: function(){
+                    this.domGameInfoIcon.innerHTML = '';
+                    this.domGameInfoIcon.innerHTML += this.getIconWz("domGameInfoIcon");
+                    this.domGameInfoIcon.innerHTML += this.getIconJoy("domGameInfoIcon");
+                },
+                // 更细页面数据显示
+                updateInfo: function(){
+                    var _t = this.levelData[this.level-1]["totalTime"] - this.useTime;
+                    console.log("剩余时间：" + addZero(parseInt(_t/60)) + ':' + addZero(parseInt(_t%60))+",当前关卡："+this.level+"");
+                    for (var i = 0; i < this.domTime.length; i++) {
+                        this.domTime[i].innerHTML = addZero(parseInt(_t)) + "s";
+                    }
+                    this.updateDomGameInfoIcon();
+                },
+                // 设置定时器
+                setTimer: function(){
+                    var _this = this;
+                    clearInterval(this.timer);
+                    this.timer = setInterval(function(){
+                        _this.useTime++;
+                        _this.updateInfo();
+                        if (_this.useTime>=_this.levelData[_this.level-1]["totalTime"]) {
+                            // 超时停止游戏
+                            console.log('未过关~超时~');
+                            alert('未过关~超时~');
+                            _this.record();
+                            _this.stop();
+                        }
+                    }, 1000);
+                },
+                // 检测是否过关或者是否通关
+                checkLevel: function(str){
+                    if (!this.flag&&this.timer) {
+                        switch (str) {
+                            case 'wz':
+                                this.clickedWZ++;
+                                break;
+                            case 'joy':
+                                this.clickedJOY++;
+                                break;
+                        }
+                        this.playerPlay();
+                        this.updateInfo();
+                        if (this.clickedWZ>=this.levelData[this.level-1]["totalWZLinks"]&&this.clickedJOY>=this.levelData[this.level-1]["totalJOYLinks"]) {
+                            // 过关
+                            console.log('过关');
+                            this.record();
+                            this.level++;
+                            this.stop();
+                            if (this.level>this.totalLevel) {
+                                console.log('通关~');
+                                alert('通关~');
+                                // this.level = 1;
+                                return;
+                            }
+                            if (this.isAutoNext) {
+                                this.start();
+                            }
+                        }
+                    }
+                },
+                // 更新用户个人游戏数据
+                record: function(){
+                    this.userData.push({"level":this.level,"usedTime":this.useTime,"clickedWZ":this.clickedWZ,"clickedJOY":this.clickedJOY});
+                },
+                // 游戏停止
+                stop: function(callback){
+                    var _this = this;
+                    clearInterval(this.timer);
+                    this.timer = null;
+                    this.flag = true;
+                    callback && callback();
+                },
+                // 点击增加声音
+                playerPlay: function(){
+                    this.domGamePlayer.currentTime = 0;
+                    this.domGamePlayer.play();
+                },
+                playerPause: function(){
+                    this.domGamePlayer.currentTime = 0;
+                    this.domGamePlayer.pause();
+                },
+                // 页面进入设置第几关开始
+                setLevel: function(m){
+                    this.init();
+                    this.level = m;
+                },
+                // 处理存储的用户数据==>结果是过关的数据
+                getNewUserData: function(){
+                    var _newData = [];
+                    for (var i = 0; i < this.userData.length; i++) {
+                        var _obj = this.userData[i];
+                        // 筛选过关的数据,根据点击的个数是否都达到关卡数量
+                        if (_obj["clickedWZ"]>=this.levelData[_obj["level"] - 1]["totalWZLinks"]&&_obj["clickedJOY"]>=this.levelData[_obj["level"] - 1]["totalJOYLinks"]) {
+                            _newData.push(_obj);
+                        }
+                    }
+                    return _newData;
+                },
+                removeIconTouchAni: function(){
+                    for (var i = 0; i < this.domIconTouch.length; i++) {
+                        this.domIconTouch[i].classList.remove('pass');
+                        this.domIconTouch[i].classList.remove('show');
+                    }
+                },
+                // 设置动画效果
+                setAni: function(callback){
+                    var _this = this;
+                    this.domGameInfo.classList.remove('ani');
+                    this.domGameMask.classList.add('ani');
+                    // 每次弹窗降落前更新其上的数据显示
+                    this.updateDomGameMaskInfoIcon();
+                    // 浮层下落2s后,左上角出现，之后开始游戏
+                    var _hasWebkitAnimationEnd = false;
+                    var _timer = null;
+                    this.domGameMask.removeEventListener('webkitAnimationEnd', function(){
+                        // 
+                    }, false);
+                    this.domGameMask.addEventListener('webkitAnimationEnd', function(){
+                        _hasWebkitAnimationEnd = true;
+                        _this.delAni();
+                        _this.showInfo();
+                        callback();
+                    }, false);
+                    clearTimeout(_timer);
+                    _timer = setTimeout(function(){
+                        if (!_hasWebkitAnimationEnd) {
+                            console.log('不支持webkitAnimationEnd事件时兼容处理');
+                            _this.delAni();
+                            _this.showInfo();
+                            callback();
+                        }
+                    }, 4500);
+                },
+                delAni: function(){
+                    this.domGameMask.classList.remove('ani');
+                },
+                showInfo: function(){
+                    this.domGameInfo.classList.add('ani');
+                },
+                showRandomLinks: function(){
+                    // this.levelData  totalWZLinks  totalJOYLinks
+                    var _len = this.domGamePage.length;
+
+                    var _lenWZ = this.levelData[this.level-1]["totalWZLinks"];
+                    var _lenJOY = this.levelData[this.level-1]["totalJOYLinks"];
+                    
+                    if (this.level<=this.limitLevel) {
+                        _len = 2;// 限制在前两屏
+                    }
+
+                    var arr = this.getLinksArr(_len);
+                    var arr_wz = [];
+                    var arr_joy = [];
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].indexOf('_wz_')!=-1) {
+                            arr_wz.push(arr[i]);
+                        }
+                        if (arr[i].indexOf('_joy_')!=-1) {
+                            arr_joy.push(arr[i]);
+                        }
+                    }
+                    var arr_wz_showNameList = getTargetClassNameList(arr_wz,_lenWZ);
+                    var arr_joy_showNameList = getTargetClassNameList(arr_joy,_lenJOY);
+                    // 数组内的元素显示
+                    showTarget(arr_wz_showNameList,arr_joy_showNameList);
+                    function showTarget(arr1,arr2){
+                        var _arr = [].concat(arr1,arr2);
+                        console.log(_arr);
+                        for (var i = 0; i < _arr.length; i++) {
+                            var _dom = document.querySelector('.'+_arr[i]);
+                            // _dom.style.display = 'block';
+                            _dom.classList.add('show');
+                            _dom.classList.remove('pass');
+                        }
+                    }
+                },
+                getLinksArr: function(m){
+                    var _arrLinks = [];
+                    for (var i = 0; i < m; i++) {
+                        for (var j = 0; j < this.domGamePage[i].children.length; j++) {
+                            var _a = this.domGamePage[i].children[j];
+                            _arrLinks.push(_a.className.split(" ")[2]);
+                        }
+                    }
+                    return _arrLinks;
+                }
+            }
+            w.Game = Game;
+        })(window);
+        /**
+         * 工具函数
+         */
+        // 获取指定范围内随机数
+        function getRandom(min,max){
+            return parseInt(Math.random()*(max-min+1)+min);
+        }
+        // 当是1位的时候，补0
+        function addZero(i) {
+            var str = i.toString();
+            if (str.length==1) {
+                return '0' + str;
+            } else {
+                return str;
+            }
+        }
+        // 判断是否有某个类名 如：cur
+        function hasClass(obj, cls) {
+            return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+        }
+        // 随机拿出指定数组内的限定个数不重复的元素
+        function getTargetClassNameList(arr,len){
+            var _arr = [].concat(arr);
+            var result = [];
+            for (var i = 0; i < len; i++) {
+                var ran = Math.floor(Math.random() * _arr.length);
+                result.push(_arr.splice(ran, 1)[0]);
+            };
+            return result;
+        }
+        
+        var game = new Game();
+        // game.setLevel(9);
+        game.start();
+        game.domGame.addEventListener('touchstart', function(e){
+            e.stopPropagation();
+            var target = e.target;
+            if (hasClass(target,'icon_touch')) {
+                if (!game.flag&&game.timer) {
+                    // target.style.display = "none";
+                    target.classList.remove('show');
+                    target.classList.add('pass');
+                    if (hasClass(target,'icon_touch_wz')) {
+                        game.checkLevel('wz');
+                    }
+                    if (hasClass(target,'icon_touch_joy')) {
+                        game.checkLevel('joy');
+                    }
+                }
+            }
+        }, false);
+
+        // 音乐播放
+        musicPlay();
+        function musicPlay(){
+            var audioBg = document.getElementById('audio');
+            // 背景音乐
+            function audioAutoPlay(audioEle){
+                var autoPlay = function(){
+                    audioEle.play();
+                    document.removeEventListener("touchstart", autoPlay, false);
+                };
+                audioEle.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {//微信
+                   autoPlay();
+                }, false);
+                document.addEventListener("touchstart", autoPlay, false);
+            }
+            audioAutoPlay(audioBg);
+            // 切换背景音乐
+            var isAudioPlaying = true;
+            function toggleAudioBG(e){
+                audioBg.preload="auto";
+                if(e){
+                    audioBg.play();
+                }else{
+                    audioBg.pause();
+                }
+                isAudioPlaying = e;
+            };
+            var btnPlay = document.querySelector('.btn_play');
+            btnPlay.addEventListener('touchstart', function(e){
+                e.stopPropagation();
+                if(isAudioPlaying){
+                    btnPlay.classList.add('pause');
+                    toggleAudioBG(false);
+                }else{
+                    btnPlay.classList.remove('pause');
+                    toggleAudioBG(true);
+                }
+            }, false);
+        }
+    </script>
+</body>
+</html>

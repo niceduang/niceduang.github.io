@@ -1,0 +1,125 @@
+/* pages/index/me.wxss */
+@import "table.wxss";
+.user-group{
+	position: absolute;
+	z-index: 10;
+	left: 40rpx;
+	right: 40rpx;
+	top: 0;
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.user-group text{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.user-photo{
+	width: 100%;
+	margin-bottom: 15rpx;
+}
+.user-photo .photo{
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto 10rpx;
+	background-color: #050c4f;
+}
+.user-photo .name{
+	text-align: center;
+	font-size: 32rpx;
+	line-height: 1.4em;
+	color: #ffffff;
+}
+.user-info{
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+.user-item{
+	position: relative;
+	flex: 1;
+	text-align: center;
+	line-height: 48rpx;
+	color: #ffffff;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.user-item + .user-item::before{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -33rpx;
+	height: 65rpx;
+	border-left: 1px solid #fff;
+}
+.user-item text:nth-of-type(1){
+	font-size: 28rpx;
+}
+.user-item text:nth-of-type(2){
+	font-size: 36rpx;
+}
+/* 2018-06-12 */
+.user-details{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.2em;
+	color: #ffffff;
+}
+.user-count{
+	flex: 1;
+	font-size: 36rpx;
+	text-align: right;
+}
+.user-ctrls{
+	width: 180rpx;
+	font-size: 24rpx;
+}
+.user-ctrls text{
+	padding: 10rpx;
+}
+/* 2018-06-26 */
+.tab-bars{
+	position: relative;
+	width: 500rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	margin: 20rpx auto;
+	border: 1px solid #fc5508;
+	border-radius: 30rpx;
+	overflow: hidden;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.tab-bar:first-child{
+	border-radius: 30rpx 0 0 30rpx;
+}
+.tab-bar:last-child{
+	border-radius: 0 30rpx 30rpx 0;
+}
+.tab-bar{
+	flex: 1;
+	height: 100%;
+	text-align: center;
+	color: #fc5508;
+	font-size: 32rpx;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.tab-bar.cur{
+	background-color: #fc5508;
+	color: #fff;
+}

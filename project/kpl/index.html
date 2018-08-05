@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk">
+<meta name="applicable-device" content="mobile">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,maximum-scale=1"/>
+<meta name="robots" content="all"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Tencent-TGideas"/>
+<meta name="Copyright" content="Tencent"/>
+<meta name="description" content="《王者荣耀》是腾讯天美工作室历时3年推出的东方英雄即时对战手游大作，抗塔强杀、团灭超神，领略爽热血竞技的酣畅淋漓！1v1、3v3、5v5、闯关等丰富游戏模式，随时战，更自由！跨服匹配秒开局，好友组队战排位，不靠装备、没有等级，更公平、更爽快的无差异对战！" />
+<meta name="keywords" content="王者荣耀,王者荣耀下载,王者荣耀电脑版" />
+<script>
+	(function (win,doc){
+	    if (!win.addEventListener) return;
+		var html=document.documentElement;
+		function setFont()
+		{
+			var cliWidth=html.clientWidth;
+			html.style.fontSize=100*(cliWidth/640)+'px';
+		}
+		win.addEventListener('resize',setFont,false);
+		setFont();
+	})(window,document);
+</script>
+<title>KPL荣誉选手展示</title>
+<!-- 页面设计：cp | 页面制作：cp | 创建：2018-05-11 -->
+<style type="text/css">
+	*{outline: 0;-webkit-tap-highlight-color: rgba(255, 255, 255, 0);}
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,figure{ margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline }
+	article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{ display:block }
+	li{list-style: none;}
+	body{-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: 100% !important;-webkit-touch-callout: none;-webkit-user-select: text;-webkit-touch-callout: none;word-break: break-all;word-wrap: break-word;}
+	h1,h2,h3,h4,h5,h6{font-weight: normal;}
+	h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight: inherit;}
+	strong,i,em{font-weight: normal;font-style: normal;}
+	input,select,form{vertical-align:middle;outline:none;}
+	img{border:none;vertical-align: top;}
+	a, button, input, select, textarea, a:focus, button:focus, input:focus, select:focus, textarea:focus, [onclick] {outline: 0;-webkit-tap-highlight-color: rgba(255, 255, 255, 0);}
+	a {-webkit-touch-callout: none;text-decoration: none;color: #666666;outline: 0;}
+	table{border-spacing: 0;border-collapse:collapse;}
+	.hidden{width: 0;height: 0;line-height:0;font-size: 0;visibility: hidden;text-indent: -99.99rem;display: block;}
+	/* foot */
+	.foot{display: none;font-size: 12px;text-align: center;padding: 20px 0;background: #000;color: #fff;}
+	.foot a{color: #fff;text-decoration: none;}
+	/* layout */
+	.players-wrap{width: 100%;margin: 0 auto;overflow: hidden;background-color: #fff;text-align: center;box-sizing: border-box;padding: 0.45rem 0.15rem 0.4rem;}
+	.players-main-tit{position: relative;}
+	.players-main-tit img{display: block;width: auto;height: 0.45rem;margin: 0 auto;}
+	.players-main-tit .time{height: 0.34rem;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow: row nowrap;-ms-flex-flow: row nowrap;flex-flow: row nowrap;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;margin: 0.2rem auto;font-size: 0.22rem;color: #343434;}
+	.players-main-tit .btn-date{position: relative;height: 100%;line-height: 0.32rem;box-sizing: border-box;margin-left: 0.08rem;border: 1px solid #343434;border-radius: 0.05rem;padding: 0 0.25rem 0 0.05rem;}
+	.players-main-tit .btn-date::after{content: "";position: absolute;right: 0.07rem;top: 0.06rem;width: 0.08rem;height: 0.08rem;border: 1px solid #343434;border-left-color: transparent;border-top-color: transparent;-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+	.players-check-btns{display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow: row nowrap;-ms-flex-flow: row nowrap;flex-flow: row nowrap;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;text-align: center;margin-bottom: 0.3rem;}
+	.players-check-btns a{width: 2.68rem;height: 0.68rem;line-height: 0.66rem;box-sizing: border-box;border: 1px solid #bd8c49;border-radius: 0.05rem;font-size: 0.28rem;color: #bd8c49;margin: 0 0.06rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;letter-spacing: 0.1rem;}
+	.players-check-btns a.act{color: #ffffff;background-color: #bd8c49;}
+	.player-min-tit{position: relative;height: 0.58rem;color: #f5f3f0;background-color: #f5f3f0;text-align: center;font-size: 0.3rem;color: #bd8c49;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow: row nowrap;-ms-flex-flow: row nowrap;flex-flow: row nowrap;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;}
+	.player-min-tit::before,.player-min-tit::after{content: "";width: 0.6rem;height: 0.03rem;margin: 0 0.15rem;}
+	.player-min-tit::before{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAADAgMAAACyvoSZAAAADFBMVEUAAAC3gTi3gTi3gThprGcTAAAAA3RSTlMA9YUOb6aJAAAAE0lEQVQI12NABWoM/5HBB1l0eQBb0w5NB2l7/AAAAABJRU5ErkJggg==) 0 0 no-repeat;background-size: cover;}
+	.player-min-tit::after{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAADAgMAAACyvoSZAAAADFBMVEUAAAC3gTi3gTi3gThprGcTAAAAA3RSTlMA9YUOb6aJAAAAE0lEQVQI12OYwYAKSvj/IwN0eQBesg6nB6MYKwAAAABJRU5ErkJggg==) 0 0 no-repeat;background-size: cover;}
+	.player-group{width: 6.1rem;margin: 0 auto;box-sizing: border-box;border: 1px solid #efefef;}
+	.player-photo,.player-photos{padding: 0.2rem 0;}
+	.photo-img-box{margin: 0 auto;border: 0.02rem solid #cdcfd1;overflow: hidden;border-radius: 50%;overflow: hidden;}
+	.photo-img-box img{display: block;width: 100%;height: 100%;border-radius: 50%;}
+	.photo-name{max-width: 100%;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;color: #343434;padding-top: 2%;}
+	.player-photo .photo-img-box{width: 1.7rem;height: 1.7rem;}
+	.player-photo .photo-name{font-size: 0.24rem;}
+	.player-photos .photo-img-box{width: 1.0rem;height: 1.0rem;}
+	.player-photos .photo-name{font-size: 0.16rem;}
+	.player-photos ul{display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow: row nowrap;-ms-flex-flow: row nowrap;flex-flow: row nowrap;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;}
+	.player-photos li{-webkit-flex:1;-ms-flex:1;flex:1;min-width: 1.2rem;}
+	.player-list{margin-top: 0.3rem;border: 1px solid #bd8c49;border-radius: 0.05rem;overflow: hidden;}
+	.player-list table{width: 6.1rem;margin: 0 auto;box-sizing: border-box;font-size: 0.24rem;color: #343434;text-align: center;}
+	.player-list tr,.player-list th,.player-list td{vertical-align: middle;text-align: center;}
+	.player-list tr + tr{border-top: 1px solid #cea25f;}
+	.player-list th + th,.player-list td + td{border-left: 1px solid #cea25f;}
+	.player-list th{height: 0.68rem;font-size: 0.28rem;color: #ffffff;background-color: #bd8c49;font-weight: normal;}
+	.player-list p{display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow: row nowrap;-ms-flex-flow: row nowrap;flex-flow: row nowrap;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;min-height: 0.54rem;max-width: 2.2rem;line-height: 1.2em;margin: 0 auto;}
+	/* 日期弹窗 */
+	.dia{display: none;position: relative;}
+	.dia-date{width: 5.16rem;height: 5.0rem;background-color: #ffffff;border-radius: 0.05rem;overflow: hidden;}
+	.dia-date-list{width: 4.8rem;margin: 0 auto;padding: 0.2rem 0;}
+	.dia-date-list ul{display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow: row wrap;-ms-flex-flow: row wrap;flex-flow: row wrap;-webkit-justify-content: flex-start;-ms-flex-pack: start;justify-content: flex-start;}
+	.dia-date-list li{width: 2.27rem;height: 0.58rem;line-height: 0.58rem;font-size: 0.24rem;color: #343434;border: 1px solid #bd8c49;border-radius: 0.05rem;box-sizing: border-box;margin: 0 0.06rem 0.1rem;text-align: center;cursor: pointer;}
+	.dia-date-list li.act{background-color: #bd8c49;color: #ffffff;}
+	.dia-btns{display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-flow:row nowrap;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;height: 0.62rem;line-height: 0.62rem;font-size: 0.26rem;border-top: 1px solid #ececec;box-sizing: border-box;text-align: center;}
+	.dia-btns a{-webkit-flex:1;-ms-flex:1;flex:1;height: 100%;color: #343434;box-sizing: border-box;}
+	.dia-btns a + a{border-left: 1px solid #ececec;}
+	.dia-btns a:nth-child(2){color: #bd8c49;}
+</style>
+</head>
+<body>
+<div class="players-wrap">
+	<h1 class="hidden">KPL荣誉选手展示</h1>
+	<div class="players-main-tit">
+		<img src="data:image/png;base64,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" alt="KPL荣誉选手展示">
+		<p class="time"><span>周最佳(4月18日-4月22日)</span><a href="javascript:showDia('dia-date');" class="btn-date">时间</a></p>
+	</div>
+	<div class="players-check-btns">
+		<a href="javascript:;" class="act">东部</a>
+		<a href="javascript:;">西部</a>
+	</div>
+	<div class="player-group">
+		<div class="player-min-tit">最佳选手</div>
+		<div class="player-photo">
+			<div class="photo-img-box"><img src="./ossweb-img/placeholder.png" alt="-"></div>
+			<p class="photo-name">-</p>
+		</div>
+	</div>
+	<div class="player-group">
+		<div class="player-min-tit">最佳阵容</div>
+		<div class="player-photos">
+			<ul>
+				<li>
+					<div class="photo-img-box"><img src="./ossweb-img/placeholder.png" alt="-"></div>
+					<p class="photo-name">-</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="player-list">
+		<table>
+			<tr>
+				<th>排名</th>
+				<th>选手</th>
+				<th>局最佳数</th>
+			</tr>
+			<tr>
+				<td><p>1</p></td>
+				<td><p>-</p></td>
+				<td><p>19</p></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!-- 日期选择弹窗-S -->
+<div class="dia dia-date" id="dia-date">
+	<div class="dia-con">
+		<div class="player-min-tit">请选择展示周期</div>
+		<div class="dia-date-list">
+			<ul>
+				<!-- class="act" -->
+				<li>3月21日-3月25日</li>
+				<li>3月28日-4月01日</li>
+				<li>4月04日-4月08日</li>
+				<li>4月11日-4月15日</li>
+				<li>4月18日-4月22日</li>
+				<li>4月25日-4月29日</li>
+				<li>5月02日-5月06日</li>
+				<li>5月09日-5月13日</li>
+				<li>5月16日-5月20日</li>
+				<li>5月23日-5月27日</li>
+			</ul>
+		</div>
+		<div class="dia-btns">
+			<a href="javascript:showDialog.hide();" class="btn-sure">确认</a>
+			<a href="javascript:showDialog.hide();" class="btn-cancel">取消</a>
+		</div>
+	</div>
+	<!-- <a class="dia-close" href="javascript:showDialog.hide()" title="关闭">×</a> -->
+</div>
+<!-- 日期选择弹窗-E -->
+<script src="//apps.game.qq.com/CommArticle/app/reg/gdate.php"></script>
+<script src="//ossweb-img.qq.com/images/js/zepto/zepto-1.1.6.min.js"></script>
+<script src="//ossweb-img.qq.com/images/js/comm/showDialog.min.js"></script>
+<script type="text/javascript">
+	var curDate = new Date(json_curdate);
+	var curT = '' + curDate.getFullYear() + checkLen(curDate.getMonth()+1) + checkLen(curDate.getDate());
+	var week = checkWeek(curT);
+	function checkWeek(curT){
+		var curT = parseInt(curT);
+		var dateList = ['20180321,20180327','20180328,20180403','20180404,20180410','20180411,20180417','20180418,20180424','20180425,20180501','20180502,20180508','20180509,20180515','20180516,20180522','20180523,20180529'];
+		for (var i = 0; i < dateList.length; i++) {
+			var _date = dateList[i].split(',');
+			var minT = parseInt(_date[0]);
+			var maxT = parseInt(_date[1]);
+			console.log(curT,minT,maxT)
+			if (curT>=minT && curT<=maxT) {
+				console.log(i);
+				return i;
+				break;
+			}
+		}
+	}
+	function checkLen(m){
+		if (m<=10) {
+			return '0'+m;
+		}else {
+			return m;
+		}
+	}
+	// showDia('dia-date');
+	function showDia(id){
+		showDialog.show({
+			id:id, //需要弹出的id，如果是弹出页面上的div，则该选项为必选
+			bgcolor:"#000",//弹出“遮罩”的颜色，格式为"#FF6600"，可选，默认为"#fff"
+			opacity:70 //弹出“遮罩”的透明度，格式为｛10-100｝，可选
+		});
+	}
+	var imgPlaceholder = './ossweb-img/placeholder.png';
+	// 时间选择
+	// var dateList = ['3月21日-3月25日','3月28日-4月01日','4月04日-4月08日','4月11日-4月15日','4月18日-4月22日','4月25日-4月29日','5月02日-5月06日','5月09日-5月13日','5月16日-5月20日','5月23日-5月27日'];
+	var dateList = ['第一周','第二周','第三周','第四周','第五周','第六周','第七周','第八周','第九周','第十周'];
+	var $diaList = $('.dia-date-list');
+	// 默认选定的日期 第9周
+	var checkedDateIndex = week;
+
+	// 所有选手 获取 mvp 次数排行榜
+	// http://api.tgatv.qq.com/app/match/getPlayerGloryRank?appid=10005&seasonid=KPL2018S1
+	// weekid   周
+	// mtype    类型     1 周最佳选手   2 周最佳阵容
+	// region    地区      1=东部   2=西部
+	// http://api.tgatv.qq.com/app/match/getPlayerWeekMvp?appid=10005&seasonid=KPL2018S1&weekid=5&mtype=2&region=1
+	var region = [1,2];
+	var weekid = checkedDateIndex+1;
+	// 默认东部
+	var checkedRegion = 0;
+	var URI = 'http://api.tgatv.qq.com/app/match/';
+	// 所有选手
+	var urlAll = URI + 'getPlayerGloryRank';
+	// var _urlAll = 'getPlayerGloryRank.json';
+	// 周选手
+	var urlRegion = URI + 'getPlayerWeekMvp';
+	// 数据：东部， 第一周  最佳选手
+	// var _urlPlayerOne = "getPlayerWeekMvp-mtype-1.json";
+	// 数据：东部， 第一周  最佳阵容
+	// var _urlPlayerList = "getPlayerWeekMvp-mtype-2.json";
+	// 东部西部
+
+	initDiaDate(dateList);
+	function initDiaDate(arr){
+		var $ul = $diaList.find('ul');
+		var strLi = '';
+		for (var i = 0; i < arr.length; i++) {
+			strLi += '<li>'+arr[i]+'</li>';
+		}
+		$ul.html(strLi);
+	}
+	var $lis = $diaList.find('li');
+
+	$('.dia-date-list').on('click','li',function(){
+		var $this = $(this);
+		if ($this.hasClass('act')) {return;}
+		checkedDateIndex = $this.index();
+		changeChecked($lis,checkedDateIndex);
+	});
+
+	changeChecked($lis,checkedDateIndex);
+	function changeChecked($items,index){
+		var act = 'act';
+		if (index<0||index>dateList.length) {return;}
+		$items.eq(index).addClass(act).siblings().removeClass(act);
+	}
+
+	updateShowTime(dateList[checkedDateIndex]);
+	function updateShowTime(txt){
+		$('.players-main-tit .time span').text('周最佳('+txt+')');
+	}
+	// 点击确定
+	$('.dia-btns').on('click','.btn-sure',function(){
+		// 更新显示时间
+		updateShowTime(dateList[checkedDateIndex]);
+		// 更新 players 信息
+		weekid = checkedDateIndex+1;
+		initPlayers(weekid,region[checkedRegion]);
+	});
+	// 点击取消
+	$('.dia-btns').on('click','.btn-cancel',function(){
+		// 
+	});
+
+	function sendRequest(url,ops,callback){
+		var ops = $.extend({}, {"appid":10005,"seasonid":"KPL2018S1"}, ops);
+		console.log(ops)
+		$.ajax({
+			type: 'GET',
+			url: url,
+			data: ops,
+			dataType: 'json',
+			timeout: 400,
+			success: function(res) {
+				console.log(res);
+				(res.data && (res.data instanceof Array) && callback) && callback(res.data);
+			},
+			error: function(e) {
+				console.log(e);
+			}
+		});
+	}
+	
+	$('.players-check-btns').on('click','a',function(){
+		var $this = $(this);
+		var index = $this.index();
+		if ($this.hasClass('act')) {return;}
+		$this.addClass('act').siblings('a').removeClass('act');
+		checkedRegion = index;
+		initPlayers(weekid,region[checkedRegion]);
+	});
+	initPlayers(weekid,region[checkedRegion]);
+	function initPlayers(weekid,region){
+		console.log(weekid,region)
+		// 东部||西部
+		sendRequest(urlRegion,{"weekid":weekid,"mtype":1,"region":region},resetPlayerBestOne);
+		sendRequest(urlRegion,{"weekid":weekid,"mtype":2,"region":region},resetPlayerBestList);
+	}
+
+	// 最佳选手
+	function resetPlayerBestOne(data){
+		var data = data[0];
+		var $parents = $('.player-photo');
+		var $img = $parents.find('img');
+		var $name = $parents.find('.photo-name');
+		var src = data.logo || "imgPlaceholder";
+		var name = data.playername || "-";
+		$img.attr({
+			"src": src,
+			"alt": name
+		});
+		$name.text(name);
+	}
+	// 最佳阵容
+	function resetPlayerBestList(data){
+		var $ul = $('.player-photos ul');
+		var maxNum = 5;
+		var strLis = '';
+		for (var i = 0; i < (data.length<=maxNum?data.length:maxNum); i++) {
+			strLis += '<li>\
+						<div class="photo-img-box"><img src="'+(data[i].logo || 'imgPlaceholder')+'" alt="'+(data[i].playername || '-')+'"></div>\
+						<p class="photo-name">'+(data[i].playername || '-')+'</p>\
+					</li>';
+		}
+		$ul.html(strLis);
+	}
+
+	sendRequest(urlAll,{},initPlayersTableList);
+	// 更新table列表
+	function initPlayersTableList(data){
+		var $tableBody = $('.player-list table tbody');
+		var strTh = '<tr><th>排名</th><th>选手</th><th>局最佳数</th></tr>';
+		var strTd = '';
+		for (var i = 0; i < data.length; i++) {
+			strTd += '<tr>\
+						<td><p>'+(i+1)+'</p></td>\
+						<td><p>'+(data[i].playername || '-')+'</p></td>\
+						<td><p>'+(data[i].count || '-')+'</p></td>\
+					</tr>';
+		}
+		$tableBody.html(strTh + strTd);
+	}
+</script>
+<script src="//game.gtimg.cn/images/js/2018foot/foot.js"></script>
+<script src="//ossweb-img.qq.com/images/js/PTT/ping_tcss_tgideas_https_min.js"></script>
+<script>
+// onclick="PTTSendClick('btn','getGift','领取礼包');"
+//此段代码不能放到外链JS中，
+var setSite={ //设置网站属性
+	siteType:"a20180511players", //必填项:"os"代表是官网，如果不是，则填写actName例如a20160701xxx
+	pageType:"index", //必填项:本页面的定位；按照页面含义填写例如main||list||detail||download||share||page1||pageN
+	pageName:"首页", //必填项:页面中文名
+	osact:0, //选填项:是否是官网专题(在官网运营的专题)boolean；默认是0；可以在链接上加入参数osact=1来灵活设置
+	ingame:0, //选填项:是否投放在游戏APP内boolean；默认是0；可以在链接上加入参数ingame=1来灵活设置
+	stayTime:0 //选填项:是否需要统计停留时长boolean；默认是0
+}
+if(typeof(pgvMain)=='function')pgvMain();//千万不能忘记！
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<view class="wrap">
+  <view class="slogan">
+    <image src="../../assets/bg1.jpg" mode="widthFix"></image>
+    <view class="btn-rule" data-dia='rule' bindtap="showDialog">活动规则</view>
+  </view>
+  <view class="cont">
+    <view class="tit">今日奖金</view>
+    <view class="money">￥123,456,780</view>
+    <view class="btn-tips">今晚凌晨12点开奖，敬请关注</view>
+    <view class="btn-share" data-dia='label' bindtap="showDialog">邀请好友参加</view>
+  </view>
+  <view class="index-rule">
+    <view class="rule-tit">参与规则：</view>
+    <view class="rule-des">设定每日步数目标，支付2元参与基金，达标后则获得平分奖金，未达标则支出2元做为达标着奖金。
+      <text class="show-detail" data-dia='rule' bindtap="showDialog">详细规则 ></text>
+    </view>
+  </view>
+</view>
+
+<!-- 引入dia_tpl模板 -->
+<import src="dia_tpl.wxml" />
+<template is="dia" data="{{diaData}}" />

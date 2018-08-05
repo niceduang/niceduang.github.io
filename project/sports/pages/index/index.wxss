@@ -1,0 +1,95 @@
+/**index.wxss**/
+@import "public.wxss";
+
+.btn-rule {
+  position: absolute;
+  z-index: 10;
+  top: 30rpx;
+  right: 40rpx;
+  width: 120rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border-radius: 36rpx;
+  background-color: #fff;
+  color: #ff6c00;
+  font-size: 22rpx;
+}
+
+.cont {
+  width: 100%;
+  height: 30vh;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tit {
+  color: #ff6c00;
+  font-size: 36rpx;
+}
+
+.money {
+  font-size: 84rpx;
+  height: 35%;
+  color: #ff6c00;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.money:first-letter {
+  font-size: 60rpx;
+}
+
+.btn-tips {
+  font-size: 24rpx;
+  color: #353535;
+}
+
+.btn-pay, .btn-share {
+  font-size: 32rpx;
+  color: #fff;
+  background: linear-gradient(to right, #ff9600, #ff6c00);
+  box-shadow: 0 10rpx 10rpx 5rpx #fff7e2;
+  text-align: center;
+}
+
+.btn-share {
+  width: 506rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+}
+
+.btn-pay {
+  margin: 60rpx auto 0;
+  width: 480rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  border-radius: 39rpx;
+}
+
+.index-rule {
+  width: 100%;
+  padding: 0 30rpx;
+  font-size: 24rpx;
+  line-height: 1.5em;
+  color: #353535;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.rule-des {
+  position: relative;
+}
+
+.show-detail {
+  position: absolute;
+  right: 10rpx;
+  bottom: 0;
+  text-decoration: underline;
+  color: #0078ff;
+}

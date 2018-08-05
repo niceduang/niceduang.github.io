@@ -1,0 +1,31 @@
+<!--pages/index/steps.wxml-->
+<view class="wrap">
+  <view class="steps-head">
+    <view class="steps-head-txt">
+      <view class="steps-head-tit">我的步数</view>
+      <view class="steps-head-num">今日步数
+        <text>{{todaySteps}}</text>
+      </view>
+    </view>
+    <view class="steps-line">
+      <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    </view>
+  </view>
+  <view class="steps-cont">
+    <view class="steps-cont-tit">步数排行榜</view>
+    <scroll-view class="steps-cont-scroll" scroll-y="true" bindscrolltolower="loadData">
+      <block wx:for="{{userList}}" wx:key="key">
+        <view class="steps-scroll-row">
+        <view>{{index+1}}</view>
+        <view class="steps-user-info">
+          <view class="steps-user-img">
+            <image src="{{item.photo!=''?iteme.photo:'https://placehold.it/60x60'}}"></image>
+          </view>
+          <text class="steps-user-name">{{item.name}}</text>
+        </view>
+        <view>123346</view>
+      </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

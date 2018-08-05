@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@function rem($px) {
+    @if $px == 0 {
+        @return 0;
+    }
+    @if $px <=2 and $px > 0 {
+        @return 1px;
+    }
+    @else {
+        @return $px / ($px * 0 + 1) / 40 * 1rem;
+    }
+}
+
+@function px($px) {
+    @if $px == 0 {
+        @return 0;
+    }
+    @else {
+        @return $px / ($px * 0 + 1) / 2 * 1px;
+    }
+}
+
+
+// 路径
+$imgPath : '../images/';
+%txt-999{
+	text-indent: rem(-9999px);
+}
+%spr{
+	background-image: url(../images/css_sprites.png);
+	background-size: rem(520px) rem(400px);
+	background-repeat: no-repeat;
+    text-indent: rem(-9999px);
+}
+
+%posr{
+	position: relative;
+}
+
+%posa{
+	position: absolute;
+}
+
+%block{
+	display: block;
+}
+
+%iblock{
+	display: inline-block;
+}
+
+%imgblock{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+%borderBox{
+	box-sizing: border-box;
+}
+
+%oneline{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+%twoline{
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+%threeline{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	line-height: 0;
+	text-indent: rem(-9999px);
+}
+
+.wrapper{
+	position: relative;
+    width: rem(750);  // 计算方式  750/40 ＝ 18.75rem
+    height: auto;//如果没有高度限制，使用auto
+    min-height: 100vh;
+    overflow: hidden;//非必选项，页面有 sticky 请不要使用
+    margin: 0 auto;
+    background-color: #f3edda;
+    -webkit-overflow-scrolling:touch;
+}
+
+@mixin spr($width: 0px, $height: 0px, $x: 0px, $y: 0px) {
+	background-position: rem($x) rem($y);
+	width: rem($width);
+	height: rem($height);
+};
+
+@mixin flex($pos: space-between){
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: $pos;
+}
+
+@mixin height($n){
+	height: rem($n);
+	line-height: rem($n);
+}
+
+@mixin centerWidth($w: 690px){
+	display: block;
+	width: rem($w);
+	margin: 0 auto;
+}
+
+@mixin posaCenter(){
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+@mixin posCenter($width: null, $height: null) {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    @if not $width and not $height {
+        transform: translate(-50%, -50%);
+    } @else if $width and $height {
+        width: $width;
+        height: $height;
+        margin: -($width / 2) #{0 0} -($height / 2);
+    }
+}

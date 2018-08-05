@@ -140,11 +140,14 @@ body {
         color: #fff;
         font: bold 10px/20px sans-serif;
         letter-spacing: 2px;
-        margin-bottom: 8px;
+        // margin-bottom: 8px;
         box-sizing: border-box;
         line-height: 1em;
         padding: 6px;
-        transition: width 0.6s;
+        transition: all 0.6s;
+        & + li{
+            margin-top: 8px;
+        }
     }
     .num{
         float: right;
