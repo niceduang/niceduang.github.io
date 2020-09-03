@@ -1,270 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>段家鹏-前端开发</title>
+    <link rel="stylesheet" type="text/css" href="css/main.min.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>段家鹏-web前端</title>
-  <link rel="stylesheet" type="text/css" href="css/main.min.css" />
-</head>
-
-<body>
-  <div id="app" class="wrapper">
-    <h1 class="hidden">resume~</h1>
-    <!-- 个人简介-S -->
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe62d;</i v-text="user.name"></p>
-      <p class="tit-tips">岗位：<span v-text="user.job"></span></p>
-      <div class="social-networks">
-        <a v-for="item in user.tags" :key="item.value" :href="item.url" target="_blank"><i v-html="item.icon"></i></a>
+  <body>
+    <div id="app" class="wrapper">
+      <h1 class="hidden">resume~</h1>
+      <!-- 个人简介-S -->
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe62d;</i>{{user.name}}</p>
+        <p class="tit-tips">岗位：<span v-text="user.job"></span></p>
+        <div class="social-networks">
+          <a v-for="item in user.tags" :key="item.value" :href="item.url" target="_blank"><i v-html="item.icon"></i></a>
+        </div>
       </div>
-    </div>
-    <div class="simple-des">
-      <p v-text="user.des"></p>
-    </div>
-    <!-- 个人简介-E -->
-    <!-- 个人技能-S -->
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe621;</i>{{skills.name}}</p>
-    </div>
-    <div class="skills">
-      <ul>
-        <li v-for="item in skills.items" :key="item.name" :style="{width: item.step}">
-          <span class="name" v-text="item.name"></span>
-          <span class="num" v-text="item.step"></span>
-        </li>
-      </ul>
-    </div>
-    <!-- 个人技能-E -->
-    <!-- 技能描述-S -->
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe601;</i>{{skillDetail.name}}</p>
-    </div>
-    <div class="skill-des">
-      <ul>
-        <li v-for="item in skillDetail.list" :key="item" v-text="item"></li>
-      </ul>
-    </div>
-    <!-- 技能描述-E -->
-    <!-- 工作经验-S -->
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe630;</i>{{experience.name}}</p>
-    </div>
-    <div class="rows projects">
-      <dl v-for="item in experience.items" :key="item.company">
-        <dt>{{item.company}} <span>({{item.date}})</span></dt>
-        <dd v-for="it in item.projects" :key="it.name">
-          <div class="rows-det">
-            <p class="name">
-              {{it.name}}
-              <a :href="it.url" target="_blank">项目地址<i>☞</i></a>
-            </p>
-          </div>
-          <p class="rows-des" v-text="it.des"></p>
-        </dd>
-      </dl>
-    </div>
-    <!-- 工作经验-E -->
-    <!-- 个人作品-S -->
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe630;</i>{{user.production.name}}</p>
-    </div>
-    <div class="production">
-      <div class="des">
-        {{user.production.desc}}
+      <div class="simple-des">
+        <p v-text="user.des"></p>
       </div>
-      <div class="item" v-for="item in user.production.items" :key="item.name">
-        <p class="name" v-text="item.name"></p>
-        <p>体验地址：<a :href="item.url">{{item.url}}</a></p>
-        <dl>
-          <dt>技术栈：</dt>
-          <dd v-for="it in item.skills" :key="it" v-text="it"></dd>
-          <dt>项⽬描述：</dt>
-          <dd v-for="(it, i) in item.des" :key="i">
-            {{i+1}}. {{it}}
-          </dd>
-          <dt>数据流程图：</dt>
-          <dd>
-            <img :src="item.flowchart" alt="流程图" width="90%">
-          </dd>
-        </dl>
+      <!-- 个人简介-E -->
+      <!-- 个人技能-S -->
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe621;</i>{{skills.name}}</p>
       </div>
-    </div>
-    <!-- 个人作品-E -->
-    <!-- 教育经历-S -->
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe600;</i>教育经历</p>
-    </div>
-    <div class="rows education">
-      <ul>
-        <li v-for="item in user.edu" :key="item.school">
-          <div class="rows-det">
-            <p class="name">{{item.school}}<span>({{item.level}})</span></p>
-            <p class="duration" v-text="item.years"></p>
-          </div>
-          <p class="rows-des" v-text="item.des"></p>
-        </li>
-      </ul>
-    </div>
-    <div class="tit">
-      <p class="tit-tag"><i class="icon">&#xe63a;</i>联系我</p>
-    </div>
-    <div class="contact">
-      <div>
+      <div class="skills">
         <ul>
-          <li><i class="icon">&#xe602;</i>电话：<a :href="'tel:'+user.phone" v-text="user.phone"></a></li>
-          <li>
-            <i class="icon">&#xe605;</i>邮箱：<a target="_blank"
-              href="//mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=UWRmZmVkaWRhYBEgIH8yPjw">{{user.email}}<span>☞</span></a>
-          </li>
-          <li><i class="icon">&#xe672;</i>主页：<a target="_blank" :href="user.page" v-text="user.page"></a></li>
-          <li>
-            <i class="icon">&#xe74c;</i>简历下载：<a href="//niceduang.github.io/resume/assets/段家鹏-前端开发-简历.pdf"
-              download="段家鹏-前端开发-简历">pdf版</a>
+          <li v-for="item in skills.items" :key="item.name" :style="{width: item.step}">
+            <span class="name" v-text="item.name"></span>
+            <span class="num" v-text="item.step"></span>
           </li>
         </ul>
       </div>
+      <!-- 个人技能-E -->
+      <!-- 技能描述-S -->
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe601;</i>{{skillDetail.name}}</p>
+      </div>
+      <div class="skill-des">
+        <ul>
+          <li v-for="item in skillDetail.list" :key="item" v-text="item"></li>
+        </ul>
+      </div>
+      <!-- 技能描述-E -->
+      <!-- 工作经验-S -->
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe630;</i>{{experience.name}}</p>
+      </div>
+      <div class="rows projects">
+        <dl v-for="item in experience.items" :key="item.company">
+          <dt>{{item.company}} <span>({{item.date}})</span></dt>
+          <dd v-for="it in item.projects" :key="it.name">
+            <div class="rows-det">
+              <p class="name">
+                {{it.name}}
+                <a :href="it.url" target="_blank">项目地址<i>☞</i></a>
+              </p>
+            </div>
+            <p class="rows-des" v-text="it.des"></p>
+          </dd>
+        </dl>
+      </div>
+      <!-- 工作经验-E -->
+      <!-- 个人作品-S -->
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe630;</i>{{user.production.name}}</p>
+      </div>
+      <div class="production">
+        <div class="des">
+          {{user.production.desc}}
+        </div>
+        <div class="item" v-for="item in user.production.items" :key="item.name">
+          <p class="name" v-text="item.name"></p>
+          <p>体验地址：<a :href="item.url">{{item.url}}</a></p>
+          <dl>
+            <dt>技术栈：</dt>
+            <dd v-for="it in item.skills" :key="it" v-text="it"></dd>
+            <dt>项⽬描述：</dt>
+            <dd v-for="(it, i) in item.des" :key="i">
+              {{i+1}}. {{it}}
+            </dd>
+            <dt>数据流程图：</dt>
+            <dd>
+              <img :src="item.flowchart" alt="流程图" width="90%" />
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <!-- 个人作品-E -->
+      <!-- 教育经历-S -->
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe600;</i>教育经历</p>
+      </div>
+      <div class="rows education">
+        <ul>
+          <li v-for="item in user.edu" :key="item.school">
+            <div class="rows-det">
+              <p class="name">{{item.school}}<span>({{item.level}})</span></p>
+              <p class="duration" v-text="item.years"></p>
+            </div>
+            <p class="rows-des" v-text="item.des"></p>
+          </li>
+        </ul>
+      </div>
+      <div class="tit">
+        <p class="tit-tag"><i class="icon">&#xe63a;</i>联系我</p>
+      </div>
+      <div class="contact">
+        <div>
+          <ul>
+            <li><i class="icon">&#xe602;</i>电话：<a :href="'tel:'+user.phone" v-text="user.phone"></a></li>
+            <li>
+              <i class="icon">&#xe605;</i>邮箱：<a target="_blank" href="//mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=UWRmZmVkaWRhYBEgIH8yPjw"
+                >{{user.email}}<span>☞</span></a
+              >
+            </li>
+            <li><i class="icon">&#xe672;</i>主页：<a target="_blank" :href="user.page" v-text="user.page"></a></li>
+            <li>
+              <i class="icon">&#xe74c;</i>简历下载：<a
+                href="//niceduang.github.io/resume/assets/段家鹏-前端开发-简历.pdf"
+                download="段家鹏-前端开发-简历"
+                >pdf版</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 教育经历-E -->
     </div>
-    <!-- 教育经历-E -->
-  </div>
-  <script src="//cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
-  <script>
-    const app = new Vue({
-      el: '#app',
-      data: {
-        user: {
-          name: '段家鹏',
-          job: '前端开发',
-          phone: '15633919763',
-          email: 'niceduang@qq.com',
-          page: 'https://niceduang.github.io',
-          birth: '1993',
-          edu: [
-            {
-              school: '黄淮学院',
-              level: '本科',
-              years: '2012.09 - 2016.06',
-              des: '大学期间按照自己的入学规划不断充实丰富自己，取得计算机二级web程序设计等级证书，并两次获得校图书馆举办的征文比赛二等奖，利用寒暑假的时间在不同岗位实习，丰富社会经验的同时也减轻了父母的经济负担。'
-            }
-          ],
-          des: '目前就职于北京博睿宏远科技股份有限公司，于2016年6月毕业后加入艺果大家庭，两年后加入博睿。本人闲暇时光喜欢逛技术与设计相关论坛(如掘金,V2EX,前端圈,淘宝UED,CodePen等)以及知乎，简书，博客园等。浏览过程中能更快了解行业动态拓宽视野，也从中发现自己的不足，进而不断为自己充电，提升技能丰富经验。平时喜欢钻研技术，对代码编写力求清晰简洁，能够很快融入团队并肩作战。而且更是一个静的下心坐得住的人，深知学习能力是一生的，特别是互联网行业新技术层出不穷，需要自己不断的汲取新知识注入新血液来提升自己。',
-          tags: [
-            {
-              value: 'Github',
-              icon: '&#xe672;',
-              url: 'https://github.com/niceduang/'
-            },
-            {
-              value: 'QQ',
-              icon: '&#xe603;',
-              url: '//mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=UWRmZmVkaWRhYBEgIH8yPjw'
-            }
-          ],
-          production:{
-            name:'个人作品',
-            desc:'既作为⾃⼰业余时间探索新技术的试验⽥，也满⾜⾃⼰收集中英双语的爱好',
-            items:[
+    <script src="//cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          user: {
+            name: '段家鹏',
+            job: '前端开发',
+            phone: '13297023004',
+            email: 'niceduang@qq.com',
+            page: 'https://niceduang.github.io',
+            birth: '1993',
+            edu: [
               {
-                name:'双语学习项⽬',
-                url:'https://card.oncetry.cn',
-                skills:[
-                  '前台： vue(包含展示端+数据管理平台+⼩程序)',
-                  '后台： node+mongodb(数据为 node 爬取 iciba)',
-                  '服务器：Ubuntu(docker 部署)'
-                ],
-                des:[
-                  '项⽬打包利⽤ git webhook 实现⾃动打包部署，由于基本 shell 脚本即可实现，便没有采⽤公司内部的 Jenkins 解决⽅案',
-                  '部署(Puppeteer)期间遇到本地环境和 Linux 环境有出⼊后采⽤ docker 解决',
-                  '数据爬取⾃ iciba，且定时爬取最新数据，并做了基本告警处理，在数据抓取异常会给⾃⼰发送告警邮件，并定期每周打包数据库⾃动上传到七⽜云，以防数据丢失'
-                ],
-                flowchart:'./img/WX20200522-232120@2x.png'
+                school: '黄淮学院',
+                level: '本科',
+                years: '2012.09 - 2016.06',
+                des:
+                  '大学期间按照自己的入学规划不断充实丰富自己，取得计算机二级web程序设计等级证书，并两次获得校图书馆举办的征文比赛二等奖，利用寒暑假的时间在不同岗位实习，丰富社会经验的同时也减轻了父母的经济负担。'
+              }
+            ],
+            des:
+              '目前就职于北京博睿宏远科技股份有限公司，于2016年6月毕业后加入艺果大家庭，两年后加入博睿。本人闲暇时光喜欢球类运动,以及逛技术与设计相关论坛(如掘金,V2EX,前端圈,淘宝UED,CodePen等)以及知乎，简书，博客园等。浏览过程中能更快了解行业动态拓宽视野，也从中发现自己的不足，进而不断为自己充电，提升技能丰富经验。平时喜欢钻研技术，对代码编写力求清晰简洁，能够很快融入团队并肩作战。而且更是一个静的下心坐得住的人，深知学习能力是一生的，特别是互联网行业新技术层出不穷，需要自己不断的汲取新知识注入新血液来提升自己。',
+            tags: [
+              {
+                value: 'Github',
+                icon: '&#xe672;',
+                url: 'https://github.com/niceduang/'
+              },
+              {
+                value: 'QQ',
+                icon: '&#xe603;',
+                url: '//mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=UWRmZmVkaWRhYBEgIH8yPjw'
+              }
+            ],
+            production: {
+              name: '个人作品',
+              desc: '既作为⾃⼰业余时间探索新技术的试验⽥，也满⾜⾃⼰收集中英双语的爱好',
+              items: [
+                {
+                  name: '双语学习项⽬',
+                  url: 'https://card.oncetry.cn',
+                  skills: [
+                    '前台： vue(包含展示端+数据管理平台+⼩程序)',
+                    '后台： node+mongodb(数据为 node 爬取 iciba)',
+                    '服务器：Ubuntu+Nginx(docker 部署)'
+                  ],
+                  des: [
+                    '项⽬打包利⽤ git webhook 实现⾃动打包部署，由于基本 shell 脚本即可实现，便没有采⽤公司内部的 Jenkins 解决⽅案',
+                    '部署(Puppeteer)期间遇到本地环境和 Linux 环境有出⼊后采⽤ docker 解决',
+                    '数据爬取⾃ iciba，且定时爬取最新数据，并做了基本告警处理，在数据抓取异常会给⾃⼰发送告警邮件，并定期每周打包数据库⾃动上传到七⽜云，以防数据丢失'
+                  ],
+                  flowchart: './img/card-process.png'
+                }
+              ]
+            }
+          },
+          skills: {
+            name: '个人技能',
+            items: [
+              { name: 'ES6,Nodejs', step: '50%' },
+              { name: 'Vue,React,jQuery,Zepto.js', step: '60%' },
+              { name: 'webpack,gulp,git,svn', step: '45%' },
+              { name: 'Photoshop', step: '30%' }
+            ]
+          },
+          skillDetail: {
+            name: '技能描述',
+            list: [
+              '主要技术栈为 React、Vue、Node,熟练处理业务编写与设计,持续关注性能优化与高效迭代',
+              '深刻理解开发中组件化的思维,并积极实践,不断提高代码复用性,健壮性,降低代码复杂度',
+              '编码习惯良好,团队协作高效,熟悉打包工具(webpack,gulp)及 Git 与 SVN 版本管理',
+              '对后台开发及部署有一定实践,及 Linux 使用经验,能够独立部署应用(Docker)',
+              '能够利用 Nodejs 编写爬虫应用,service 中后台业务,及脚本工具自动化处理相关业务需求(命令行工具)',
+              '团队协作中乐于分享,善于学习,积极参与团队技术实践与沉淀,伴随团队共同成长',
+              '乐于尝试新技术,保持乐观学以致用的心态,积极实践探索最佳实践方案',
+              '能够站在用户角度思考产品设计与优化,提升程序易用性,提升用户体验'
+            ]
+          },
+          experience: {
+            name: '工作经验',
+            items: [
+              {
+                date: '2018.10-至今',
+                company: '北京博睿宏远数据科技股份有限公司',
+                projects: [
+                  {
+                    name: 'DataView',
+                    url: 'http://devtest.ibr.cc:20159/view/home',
+                    skills: 'Node+Mysql+vue',
+                    des: '⼀款⾼度可配置的可视化解决⽅案,帮助⾮专业的⼯程师通过图形化的界⾯轻松搭建专业⽔准的可视化应⽤(node+mysql+vue)'
+                  },
+                  {
+                    name: 'Bonree小程序',
+                    url: 'http://devtest.ibr.cc:20160/homepage/list',
+                    skills: 'vue',
+                    des: '主要应用于小程序的数据采集，可视化展示，以直观的方式展示页面分析请求分析等，以及设置数据采集阈值等。前端主要采用Vue技术栈。'
+                  },
+                  {
+                    name: '中信银⾏信⽤卡项⽬',
+                    url: '',
+                    skills: 'React+websocket',
+                    des:
+                      '基于客户原有系统，针对报警与调⽤关系相关需求进⼀步开发的⼀个⼦系统，主要⽬的是根据他们现有的数据做可视化展示，以及报警相关配置，由于是银⾏内部项⽬，没有任何源码和外部访问地址(React+websocket)'
+                  }
+                ]
+              },
+              {
+                date: '2016.06-2018.10',
+                company: '武汉艺果未来文化传播有限公司',
+                projects: [
+                  {
+                    name: 'TGL官网(v1.2.0)',
+                    url: '//tgl.qq.com',
+                    skills: '',
+                    des:
+                      '应需求方要求快速完成腾讯游戏玩家创作联盟官网制作，内容包含首页介绍与内容呈现，以及后台用户相关操作（添加图文，管理图文，发布预览等）。其中涉及数据图表呈现，要求模块化开发，便于内部开发移植调用。'
+                  },
+                  {
+                    name: 'MUR后台(v1.0.1)',
+                    url: '',
+                    skills: 'jQuery+Bootstrap',
+                    des:
+                      '此项目为腾讯互娱(IEG)内部用研项目管理平台。项目要求兼容PC端主流分辨率，主要依赖Bootstrap进行响应式开发，后台需要较多图表相关进行数据展示与切换，主要应用Highcharts进行图表数据渲染。'
+                  },
+                  {
+                    name: 'KPL荣誉选手(小程序)',
+                    url: '',
+                    skills: '',
+                    des:
+                      '此需求为英雄联盟KPL官方荣誉选手排行展示，由后台人员提供相关接口，完成H5页面呈现和官方小程序展示。页面采用flex布局兼容不同数据量合理呈现。'
+                  }
+                ]
               }
             ]
           }
         },
-        skills: {
-          name: '个人技能',
-          items: [
-            { "name": "ES6,Nodejs", "step": "50%" },
-            { "name": "Vue,Reactjs,wxapp,jQuery,Zepto.js", "step": "60%" },
-            { "name": "git,gulp,webpack", "step": "45%" },
-            { "name": "Photoshop", "step": "30%" }
-          ]
-        },
-        skillDetail: {
-          name: '技能描述',
-          list: [
-            '主要技术栈为 Vue、React、Node,熟练处理常⻅业务编写与设计.',
-            '深刻理解业务开发中组件化的思维，并积极实践，持续优化迭代.',
-            '熟悉W3C规范。能够编写语义化良好的HTML、模块化的css,js，能够独立快速完成常见项目，并处理常见兼容性。熟练应用sass、less进行模块化css编写。',
-            '对后台有⼀定实践，及 Linux 使⽤经验，能够独⽴部署前后端(docker)',
-            '能够利⽤ Nodejs 编写脚本⼯具⾃动化处理相关业务需求',
-            '能够科学高效利用搜索定位解决问题。并且拥有快速学习的能力，能在工作之余不断丰富自己。',
-            '善于学习和运用知识技能，乐于沟通和分享，具备良好的团队合作精神和积极主动的沟通意识。'
-          ]
-        },
-        experience: {
-          name: '工作经验',
-          items: [
-            {
-              date: '2018.10-至今',
-              company: '北京博睿宏远数据科技股份有限公司',
-              projects: [
-                {
-                  name: 'DataView',
-                  url: 'http://devtest.ibr.cc:20159/view/home',
-                  skills: 'Node+Mysql+vue',
-                  des: '⼀款⾼度可配置的可视化解决⽅案,帮助⾮专业的⼯程师通过图形化的界⾯轻松搭建专业⽔准的可视化应⽤(node+mysql+vue)'
-                },
-                {
-                  name: 'Bonree小程序',
-                  url: 'http://devtest.ibr.cc:20160/homepage/list',
-                  skills: 'vue',
-                  des: '主要应用于小程序的数据采集，可视化展示，以直观的方式展示页面分析请求分析等，以及设置数据采集阈值等。前端主要采用Vue技术栈。'
-                },
-                {
-                  name: '中信银⾏信⽤卡项⽬',
-                  url: '',
-                  skills: 'React+websocket',
-                  des: '基于客户原有系统，针对报警与调⽤关系相关需求进⼀步开发的⼀个⼦系统，主要⽬的是根据他们现有的数据做可视化展示，以及报警相关配置，由于是银⾏内部项⽬，没有任何源码和外部访问地址(React+websocket)'
-                }
-              ]
-            },
-            {
-              date: '2016.06-2018.10',
-              company: '武汉艺果未来文化传播有限公司',
-              projects: [
-                {
-                  name: 'TGL官网(v1.2.0)',
-                  url: '//tgl.qq.com',
-                  skills: '',
-                  des: '应需求方要求快速完成腾讯游戏玩家创作联盟官网制作，内容包含首页介绍与内容呈现，以及后台用户相关操作（添加图文，管理图文，发布预览等）。其中涉及数据图表呈现，要求模块化开发，便于内部开发移植调用。'
-                },
-                {
-                  name: 'MUR后台(v1.0.1)',
-                  url: '',
-                  skills: 'jQuery+Bootstrap',
-                  des: '此项目为腾讯互娱(IEG)内部用研项目管理平台。项目要求兼容PC端主流分辨率，主要依赖Bootstrap进行响应式开发，后台需要较多图表相关进行数据展示与切换，主要应用Highcharts进行图表数据渲染。'
-                },
-                {
-                  name: 'KPL荣誉选手(小程序)',
-                  url: '',
-                  skills: '',
-                  des: '此需求为英雄联盟KPL官方荣誉选手排行展示，由后台人员提供相关接口，完成H5页面呈现和官方小程序展示。页面采用flex布局兼容不同数据量合理呈现。'
-                }
-              ]
-            }
-          ]
+        methods: {
+          show: function() {
+            alert('run...')
+          }
         }
-      },
-      methods: {
-        show: function () {
-          alert('run...')
-        }
-      }
-    })
-  </script>
-</body>
-
+      })
+    </script>
+  </body>
 </html>
