@@ -163,16 +163,10 @@ body {
   font-size: 13px;
   line-height: 1.4em;
   &-det {
-    float: left;
-    width: 30%;
+    margin-bottom: 8px;
     .name {
       font-weight: bold;
       font-size: 14px;
-      a,
-      span {
-        display: block;
-        opacity: 0.6;
-      }
       i {
         font-size: 10px;
         padding-left: 10px;
@@ -186,8 +180,7 @@ body {
     }
   }
   &-des {
-    float: right;
-    width: 65%;
+    line-height: 1.8em;
   }
 }
 // 教育经历
